@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianji.learning.mapper.LearningRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.tianji.learning.domain.po.LearningRecord">
+            <id property="id" column="id" />
+            <result property="lessonId" column="lesson_id" />
+            <result property="sectionId" column="section_id" />
+            <result property="userId" column="user_id" />
+            <result property="moment" column="moment" />
+            <result property="finished" column="finished" />
+            <result property="createTime" column="create_time" />
+            <result property="finishTime" column="finish_time" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,lesson_id,section_id,user_id,moment,finished,
+        create_time,finish_time,update_time
+    </sql>
+    <select id="countLearnedSections" resultType="com.tianji.api.dto.IdAndNumDTO">
+        SELECT lesson_id AS id, COUNT(1) AS num
+        FROM learning_record
+        WHERE user_id = #{userId}
+          AND finished = 1
+        GROUP BY lesson_id;
+    </select>
+</mapper>

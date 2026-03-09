@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianji.learning.mapper.LearningNoteMapper">
+
+    <resultMap id="BaseResultMap" type="com.tianji.learning.domain.po.LearningNote">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="content" column="content" />
+            <result property="courseId" column="course_id" />
+            <result property="chapterId" column="chapter_id" />
+            <result property="sectionId" column="section_id" />
+            <result property="isPrivate" column="is_private" />
+            <result property="noteMoment" column="note_moment" />
+            <result property="createTime" column="create_time" />
+            <result property="updateTime" column="update_time" />
+            <result property="isGathered" column="is_gathered" />
+            <result property="authorId" column="author_id" />
+            <result property="gatherIds" column="gather_ids" />
+            <result property="usedTimes" column="used_times" />
+            <result property="hidden" column="hidden" />
+            <result property="originNoteId" column="origin_note_id" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,content,course_id,chapter_id,section_id,
+        is_private,note_moment,create_time,update_time,is_gathered,
+        author_id,gather_ids,used_times,hidden,origin_note_id
+    </sql>
+</mapper>
